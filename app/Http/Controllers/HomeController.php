@@ -40,6 +40,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function locale()
+    {
+        Session::put('locale', $locale);
+        return redirect()->back();
+    }
 
     public function indexsi()
     {
@@ -51,9 +56,11 @@ class HomeController extends Controller
         $AboutSection = AboutSection::find(1);
         $Category = Category::with('refrences')->get();
 
-        $refrences = Refrence::OrderBy('id', 'desc')->get();
+        $refrences = Refrence::OrderBy('id', 'desc')->take(6);
         $brands = brands::all();
         $Features = Features::all();
+  
+      
 
 
         return view('homesie', compact('setting', 'Slider', 'Service1', 'Service2', 'Service3', 'AboutSection', 'Category', 'refrences', 'brands', 'Features'));

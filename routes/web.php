@@ -23,13 +23,7 @@ Route::get('/page/{url_category}', 'HomeController@singel_page')->name('singel_p
 
 Route::get('/pages/{url_category}', 'HomeController@singel_pagech')->name('singel');
 
-
-Route::get('locale/{locale}', function ($locale) {
-    Session::put('locale', $locale);
-
-
-    return redirect()->back();
-});
+Route::get('locale/{locale}', 'HomeController@locale');
 
 
 Route::get('/', 'HomeController@indexsi')->name('index');
@@ -108,13 +102,9 @@ Route::get('login', function () {
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/donecontact', 'admin\ContactusController@show');
-
 Route::get('/Refrence', 'admin\RefrenceController@show');
-
-
 Route::get('/brandspage', 'HomeController@brandspage');
 Route::get('/aboutpage', 'HomeController@aboutpage');
 Route::get('/contactus', 'HomeController@contactus');

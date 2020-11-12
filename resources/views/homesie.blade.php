@@ -384,7 +384,7 @@
                             <!--<div class="resizer"></div>-->
 
 
-                            @foreach($refrences  as $refrence->take(6))
+                            @foreach($refrences  as $refrence)
 
                                 <div class="col-lg-4 col-md-6 cat--{{$refrence->category_id}}">
                                     <!-- Projects Wrap Start -->
@@ -408,7 +408,7 @@
                                                     <h6 class="heading"> @if(App::getLocale()=='en')
                                                             {{$refrence->name_en}}
                                                         @else
-                                                            {{$refrence->name_ge}}
+                                                       ->take(6)     {{$refrence->name_ge}}
 
                                                         @endif</h6>
 
